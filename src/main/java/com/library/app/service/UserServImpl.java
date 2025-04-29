@@ -55,11 +55,12 @@ public class UserServImpl implements UserService {
 	}
 
 	@Override
-	public UserModel loginUser(UserModel model) {
-		List<UserModel> uList = userRepository.findByEmailAndPassword(model.getEmail(), model.getPassword());
+	public UserModel loginUser(String email, String password) {
+		List<UserModel> uList = userRepository.findByEmailAndPassword(email, password);
 		if (uList.isEmpty()) {
 			return new UserModel();
 		}
+		uList.get(0).setPassword("");
 		return uList.get(0);
 	}
 

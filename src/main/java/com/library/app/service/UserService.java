@@ -15,5 +15,5 @@ public interface UserService {
 
 	public List<UserModel> viewAllUsers();
 
-	public UserModel loginUser(UserModel model);
+	public UserModel loginUser(String email, String password);
 }
